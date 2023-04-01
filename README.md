@@ -2,7 +2,7 @@
 
 ### Challenge Details
 
-**Name:** Pixel Rush  
+**Name:** ASCII Rush  
 **Category:** Coding  
 **FLAG:** `SUCTF{TcP_1s_r34lly_Aw3s0m3}`  
 **Description:**  

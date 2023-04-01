@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-from server.server import PixelServer
+from server.server import ASCIIServer
 
 if __name__ == "__main__":
     if os.getenv('ENV') == 'development':
@@ -12,5 +12,5 @@ if __name__ == "__main__":
         host = '0.0.0.0'
 
     port = 5000
-    server = PixelServer(host, port)
+    server = ASCIIServer(host, port)
     server.run()

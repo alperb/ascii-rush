@@ -2,7 +2,7 @@ import socket
 
 from server.connection import Connection
 
-class PixelServer:
+class ASCIIServer:
     def __init__(self, host: str, port: int):
         self.host = host
         self.port = port
