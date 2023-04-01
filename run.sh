@@ -1,0 +1,1 @@
+docker run -itd --name=challenge_pixel-rush -p 5000:5000 -e ENV=production suctf23_pixel-rush

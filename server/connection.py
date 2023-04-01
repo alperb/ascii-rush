@@ -17,6 +17,7 @@ class Connection:
         self.conn = conn
         self.addr = addr
         self.current_step = 0
+        self.total_steps = len(game_config["schema"])
 
         with self.conn:
             print('Connected by', addr)
@@ -52,6 +53,11 @@ class Connection:
             
 
     def send_game(self, step: int, answer: int = None):
+        if step >= self.total_steps:
+            self.conn.sendall(b'\nCongratulations, you have completed the game!')
+            self.close()
+            return
+
         s = game_config["schema"][step]
 
         if 'answer' in s and answer != s['answer']:
