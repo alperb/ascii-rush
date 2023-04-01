@@ -1,4 +1,4 @@
-# pixel-rush
+# ascii-rush
 
 ### Challenge Details
 
