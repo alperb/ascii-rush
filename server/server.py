@@ -1,4 +1,5 @@
 import socket
+import threading
 
 from server.connection import Connection
 
@@ -21,6 +22,7 @@ class ASCIIServer:
             try:
                 conn, addr = self.socket.accept()
                 connection = Connection(conn, addr)
+                threading.Thread(target=connection.run).start()
 
                 if addr not in self.conn_bucket:
                     self.conn_bucket[addr] = connection

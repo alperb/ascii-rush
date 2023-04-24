@@ -19,16 +19,21 @@ class Connection:
         self.current_step = 0
         self.total_steps = len(game_config["schema"])
 
+    def run(self):
         with self.conn:
-            print('Connected by', addr)
+            print('Connected by', self.addr)
             self.conn.sendall(bytes(WELCOME_MESSAGE, "utf-8"))
             while True:
-                data = conn.recv(1024)
-
+                try:
+                    data = self.conn.recv(1024)
+                except ConnectionError as e:
+                    print(f'Connection with {self.addr} has been reset.')
+                    self.close()
+                    break
                 try:
                     splitted = data.decode().split(" ")
                     splitted = [s.strip() for s in splitted]
-
+                    print(splitted)
                     if splitted[0] == "START":
                         self.send_game(self.current_step)
                     elif splitted[0] == "ANS":
@@ -42,7 +47,7 @@ class Connection:
                     break
                 except Exception as e:
                     print(e, 2)
-                    conn.sendall(b'Bruh, what was that?')
+                    self.conn.sendall(b'Bruh, what was that?')
                     self.close()
                     break
 
@@ -59,7 +64,8 @@ class Connection:
             return
 
         s = game_config["schema"][step]
-
+        print(s)
+        
         if 'answer' in s and answer != s['answer']:
             raise WrongAnswerError("Wrong answer was given")
 
