@@ -6,5 +6,5 @@ services:
     ports:
       - "9900:5000"
     environment:
-      - FLAG=SUCTF{TcP_1s_r34lly_Aw3s0m3}
+      - FLAG=TcP_1s_r34lly_Aw3s0m3
       - ENV=production
