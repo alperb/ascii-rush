@@ -14,7 +14,7 @@ def find_entrance(lab: str):
         if char != "=" and char != "|":
             return {"idx": char_idx}
 
-HOST = "0.0.0.0"  # The server's hostname or IP address
+HOST = "ascii-rush.c.sucyber.net"  # The server's hostname or IP address
 PORT = 9900  # The port used by the server
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:

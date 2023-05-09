@@ -71,7 +71,7 @@ class Connection:
 
         schema = s['schema']
 
-        flag = 'SUCTF{' + os.getenv("FLAG") + '}'
+        flag = 'SUCTF{TcP_1s_r34lly_Aw3s0m3}'
         joined = "\n".join(schema)
         if '%' in joined:
             joined = joined.replace("%", flag[flag_indexes.index(step)])
